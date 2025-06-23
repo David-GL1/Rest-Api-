@@ -255,7 +255,7 @@ const createModal = (showInfo) => {
         btnAddToFavorites.classList.add("btnAddToFavorites", "fa-regular", "fa-heart", "link")
 
         //Obtener todo el array de usuarios creados
-        const arrayUser = JSON.parse(localStorage.getItem("users"))
+        const arrayUser = JSON.parse(localStorage.getItem("users")) || [];
         //Obtener el correo el cual esta activo para agregar favoritos
         const userEmailActive = JSON.parse(localStorage.getItem("Sesion activa"))
         //Encontrar al usuario con datos y sus favoritos
@@ -556,7 +556,7 @@ const checkAccount = () => {
         return;
     }
 
-    const arrayAccounts = JSON.parse(localStorage.getItem("users"))
+    const arrayAccounts = JSON.parse(localStorage.getItem("users")) || [];
 
     const accountExist = arrayAccounts.some(user => user.email === valueInputEmail)
 
@@ -602,7 +602,7 @@ const createAccount = () => {
         const valueInputEmail = document.querySelector(".containerGeneralForm__containerDatauser--inputEmail").value
 
         //Array completo de usuarios
-        const usersArray = JSON.parse(localStorage.getItem("users"));  
+        const usersArray = JSON.parse(localStorage.getItem("users")) || [];
 
         //Confirmar si el correo ingresado es igual a uno de los que ya existen en el array de usuarios
         const isEmailRegistered = usersArray.some(user => user.email ===  valueInputEmail)
@@ -773,7 +773,7 @@ const createFavoritesCard = (favoritesArray) => {
 //Opciones las cuales se pueden realizar en la pagina de favoritos
 const optionsFavorites = () => {
     const userEmail = JSON.parse(localStorage.getItem("Sesion activa"));
-    const users = JSON.parse(localStorage.getItem("users"));    
+    const users = JSON.parse(localStorage.getItem("users")) || [];
     const findUserActiveSession = users.find(user => user.email === userEmail)
     const gridFavorites = document.querySelector(".gridFavorites")
 
@@ -839,7 +839,7 @@ const showUserData = () => {
     if(localStorage.getItem("Sesion activa")){
 
         const userEmail = JSON.parse(localStorage.getItem("Sesion activa"));
-        const users = JSON.parse(localStorage.getItem("users"));    
+        const users = JSON.parse(localStorage.getItem("users")) || [];
         const findUserActiveSession = users.find(user => user.email === userEmail)
 
         const nameUserValueInput = document.querySelector(".containerGeneralForm__containerDatauser--inputNameValue")
@@ -896,7 +896,7 @@ const updateData = () => {
         const emailValidation = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         //Array completo de usuarios
-        const usersArray = JSON.parse(localStorage.getItem("users")); 
+        const usersArray = JSON.parse(localStorage.getItem("users")) || [];
         const userEmailActiveSession = JSON.parse(localStorage.getItem("Sesion activa"));
 
         if(valueNameInput.trim() === "" || valueLastNameInput.trim() === "" || valueInputEmail.trim() === "" ) {
@@ -995,7 +995,8 @@ const deleteAccount = () => {
     
     btnConfirmDeleteAccount.addEventListener("click",  () => {
     const userEmail = JSON.parse(localStorage.getItem("Sesion activa"));
-    const users = JSON.parse(localStorage.getItem("users"));    
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+   
 
     //Encontrar dentro del array de usuarios al usaurio con la sesion activa
     const userIndex = users.findIndex(user => user.email === userEmail)
@@ -1115,7 +1116,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         const userEmail = JSON.parse(localStorage.getItem("Sesion activa"));
-        const users = JSON.parse(localStorage.getItem("users"));    
+        const users = JSON.parse(localStorage.getItem("users")) || []; 
         const findUserActiveSession = users.find(user => user.email === userEmail)
 
         if(findUserActiveSession.favorites.length > 0){
