@@ -1,0 +1,855 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+
+    &.noScrollActive{
+        overflow: hidden;
+    }
+}
+
+//NAVEGACION PHONES
+.containerInfoPhones{
+    display: none;
+
+    @include phones{
+        width: 100%;
+        display: block;
+        padding: 12px;
+    }
+}
+
+.containerInfoPhones__nav{
+    @include phones{
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+.noShowTablets{
+    @include tablets{
+        display: none;
+    }
+}
+
+//Header
+.header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 32px;
+    gap: 15px;
+
+    @include phones{
+        justify-content: space-between;
+        gap: 0;
+        padding: 0 10px 0 10px;
+    }
+
+    @include tablets{
+        width: 100%;
+        gap: 0px;
+        padding: 20px;
+        justify-content: space-between;
+    }
+}
+.containerInfo{
+    width: 40%;
+
+    @include phones{
+        display: none;
+    }
+}
+
+.containerInfo__nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.containerLogo{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+
+    @include phones {
+        justify-content: start;
+    }
+
+    @include tablets{
+        width: 10%;
+    }
+}
+
+.logo{
+    width: 65px;
+    height: 90px;
+
+    @include phones{
+        width: 50px;
+        height: 75px;
+    }
+}
+
+.noShowPhones{
+    @include phones{
+        display: none;
+    }
+}
+
+.userPanel{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.userPanelRewards{
+    width: 50%;
+}
+
+.userPanelRewards__btn{
+    @include tablets{
+        padding: 5px;
+    }
+}
+
+.containerUser{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-left: 20px;
+    transform: translateX(-10px);
+
+    @include phones{
+        width: 100%;
+        gap: 12px;
+        justify-content: end;
+    }
+
+    @include tablets{
+        gap: 10px;
+        justify-content: end;
+    }
+}
+
+.containerUser__link{
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    @include phones{
+        width: 40px;
+        height: 40px;
+    }
+}
+
+//Aside User
+.asideUser{
+    width: 250px;
+    height: 100vh;
+    padding: 2rem 1.5rem 1rem 1.5rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    transform: translateX(100%);
+
+    &.active{
+        transform: translateX(0);
+    }
+
+    @include phones{
+        width: 100%;
+        max-width: 430px;
+    } 
+}
+
+.asideUser__containerClose{
+    cursor: pointer;
+}
+
+.asideUser__containerOptions{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.5rem;
+
+    >:first-child{
+        align-self: flex-end;
+    }
+}
+        
+//Main 
+.banner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.banner__gifs{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(150px, 1fr));
+    grid-template-rows: repeat(2, 280px);
+    position: relative; 
+
+    @include phones {
+        grid-template-columns: repeat(3, minmax(105px, 230px));
+        grid-template-rows: repeat(4, minmax(160px, 210px));
+    }
+
+    @include tablets{
+        grid-template-columns: repeat(4, minmax(150px, 255px));
+        grid-template-rows: repeat(3, minmax(160px, 250px));
+    }
+      
+}
+
+.gif {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    object-position: center;
+}
+
+.bannerArticle {
+    width: 30%;
+    height: 300px;
+    padding: 20px;  
+    position: absolute;           
+    right: 55px;                    
+    top: 20%;  
+    z-index: 4;   
+    
+    @include phones{
+        width: 90%;
+        padding: 7px;
+        left: 50%;
+        transform: translateX(-50%) translateY(50%);        
+        right: 0;
+    }
+
+    @include tablets{
+        width: 70%;
+        padding: 7px;
+        left: 50%;
+        transform: translateX(-50%) translateY(50%);        
+        right: 0;
+    }
+}
+
+.bannerArticle__title {             
+    text-align: center;
+    margin-bottom: 10px;                                   
+}
+
+.containerSearch{
+    width: 100%;
+    margin: 50px 0 50px 0;
+}
+
+.containerSearch__btn{
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    max-width: 650px;
+}
+
+.containerSearch__container {
+  height: 0;
+  display: flex;
+  justify-content: space-evenly;
+
+  &.active {
+    width: 90%;    
+    height: auto !important;
+    margin: 35px auto 0 auto;
+    
+    @include phones {
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+  }
+}
+
+.containerSearch__container--input {
+    width: 40%;
+    max-width: 500px;
+
+    @include phones{
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    @include tablets{
+        width: 60%;
+        max-width: 420px;
+    }
+}
+
+.containerSearch__container--btn {
+    width: 25%;
+    max-width: 375px;
+    margin: 0 !important;
+
+    @include phones{
+        width: 70%;
+        max-width: 300px;
+    }
+}
+
+.containerSearch__container--input,
+.containerSearch__container--btn {
+    transform: translateY(-10px);
+
+    &.active {
+        transform: translateY(0);
+    }
+}
+  
+.gridShows{
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows:  auto;
+    padding: 5px;
+
+    > :nth-child(2){
+        padding: 30px;
+        gap: 50px;
+
+        @include phones{
+            gap: 38px;
+        }
+    }
+}
+
+.gridShows__conteinerCards{
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 12px 0 20px 0;    
+
+    &::-webkit-scrollbar {
+        display: none; 
+    }
+
+    &.displayGrid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 45px !important;
+        padding: 0 !important;
+
+    @include phones {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 30px !important;
+        place-items: center;
+    }
+
+    @include tablets{
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+}}
+
+.gridShows__card{
+    width: 200px;
+    height: 300px;
+    padding: 10px;
+    flex: 0 0 auto;
+    position: relative;
+
+    @include phones{
+        width: 150px;
+        height: 250px;
+        max-width: 175px;
+        max-height: 275px;
+        padding: 0;
+    }}
+
+//Titulo de resultados encontrados al momento de hacer una busqueda
+.titleFoundResult{
+    margin-bottom: 15px;
+    @include general-style-title($titulosGeneral, 1.6rem);
+    
+    @include phones{
+        text-align: center;
+    }
+}
+
+.numberRanking {
+    position:   absolute;
+    top: -43px;
+    left: -25px;
+    z-index: 4;
+}
+
+//Footer
+.footer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 32px;
+
+    @include phones{
+        flex-direction: column;
+        gap: 20px;
+        padding: 15px;
+    }
+
+    @include tablets{
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+}
+
+.footerContainer__newsLetter{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 25%;
+    padding: 10px;
+
+    @include phones{
+        width: 100%;
+    }
+
+    @include tablets{
+        width: 40%;
+    }
+}
+
+.footerContainer__newsLetter--title,
+.footerSocialContainer__nav--link,
+.footerCommentsContainer__title{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.footerContainer__newsLetter--input{
+    margin: 0 auto;
+}
+
+.footerContainer__newsLetter--btn,
+.footerCommentsContainer__container--btn{
+    margin: 0 auto;
+}
+
+.footerContainerAboutUs,
+.footerSocialContainer,
+.footerCommentsContainer{
+    padding: 10px;
+
+    @include phones{
+        width: 100%;
+    }
+
+    @include tablets{
+        width: 40%;
+    }
+}
+
+.footerSocialContainer,
+.footerCommentsContainer {
+    @include tablets {
+        margin-top: 30px; 
+    }
+}
+
+.footerContainerAboutUs__title,
+.footerSocialContainer__title{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 12px;
+}
+
+.footerContainerAboutUs__nav,
+.footerSocialContainer__nav{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footerCommentsContainer__container{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+}
+
+.footerCommentsContainer__container--textTarea {
+    height: 100px;
+    padding: 10px 15px;
+
+    @include phones{
+        width: 90%;
+        margin: 0 auto;
+        max-width: 500px;
+    }
+}
+  
+.footerContainerSmall{
+    padding: 14px;
+}
+
+.footerContainerSmall__small{
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+//Estilos favorites
+.titleFavorites{
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    padding: 1rem;
+}
+
+.gridFavorites{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 220px));
+    width: 94%;
+    margin: 0 auto;
+    gap: 22px;
+
+    &.noFavoritesAdded{
+        display: flex;
+    }
+
+    @include phones{
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+
+    @include tablets{
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    }
+}
+
+.gridFavorites__card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.gridFavorites__img{
+   width: 100%;
+   height: 275px;
+}
+
+.gridFavorites__containerDelete{
+    display: flex;
+    justify-content: center;
+}
+
+.gridFavorites__containerDelete--btn{
+    width: 100%;
+}
+
+//Diseños crear cuenta
+.centerAll{
+    @extend %center-containerForm;
+}
+
+.containerNotice{
+    padding: 0.8rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.containerGeneralForm__form{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.containerGeneralForm__title{
+    margin-bottom: 14px;
+}
+
+.containerGeneralForm__containerDatauser{
+    display: flex;
+    gap: 10px;
+
+    @include phones{
+        flex-direction: column;
+    }
+}
+
+.containerGeneralForm__containerDatauser--formField{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 4px;
+}
+
+.containerGeneralForm__containerBtns{
+    display: flex;
+    gap: 14px;
+}
+
+//Exclusivo en accotun.html
+
+//Btn de actualizar datos
+.containerGeneralForm__containerBtns--btnUpdateData{
+    &.noShow{
+       display: none; 
+    }
+}
+
+//Bnt de eliminar cuenta
+.containerGeneralForm__containerBtns--btnDeleteAccount{
+    &.noShow{
+        display: none; 
+    }
+}
+
+//Btn de guardar datos a actualizar
+.containerGeneralForm__containerBtns--saveDataAccount{
+    &.noShow{
+        display: none; 
+    }
+}
+
+//Estilos modal
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 6;
+}
+
+.modal {
+    width: 80%;
+    height: 90%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    gap: 10px;
+    z-index: 7;
+
+    @include phones{
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        padding-top: 10px;
+    }
+
+    @include tablets{
+        width: 85%;
+        gap: 0;
+    }
+}
+
+.modal__containerActions{
+    display: flex;
+    gap: 32px;
+    justify-content: flex-end; 
+    height: 20px;
+}
+
+.modal__containerImg {
+    width: 45%;
+    height: 100%;
+
+    @include phones{
+        width: 100%;
+        height: 50%;
+    }
+
+    @include tablets{
+        width: 50%;
+    }
+}
+
+.modal__containerImg--img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+
+    @include phones{
+        object-fit: contain;
+    }
+}
+
+.modal__containerMoreInfo--span{
+    &.goodShow {
+        padding: 6px;
+    }
+
+    &.regularShow {
+        padding: 6px;
+
+    }
+
+    &.badShow {
+        padding: 6px;
+    }
+}
+
+.modal__synopsisContainer{
+    width: 55%;
+    padding: 20px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    @include phones{
+        width: 100%;
+        padding: 15px;
+        margin: 0;
+        overflow-y: visible;
+        align-items: center;
+    }
+
+    @include tablets{
+        padding: 15px;
+    }
+}
+
+.modal__containerGenres{
+    display: flex;
+    gap: 15px;
+
+    @include tablets{
+        flex-wrap: wrap;
+    }
+}
+
+.modal__containerMoreInfo{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+
+    @include phones{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    @include tablets{
+        flex-wrap: wrap;
+    }
+}
+
+.modal__containerInfoShow--genre {
+    padding: 6px;
+}
+
+.modal__synopsisContainer--synopsis{
+    text-align: justify;
+}
+
+//createMesaage()
+.messageContainer{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 12px;
+}
+
+.messageContainer__title{
+    @include phones{
+        text-align: center;
+    }
+
+    @include tablets{
+        text-align: center;
+    }
+}
+
+.messageContainer__text{
+    @include phones{
+        text-align: center;
+    } 
+
+    @include tablets{
+        text-align: center;
+    }
+}
+
+//Alert
+.containerAlert{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    max-width: 600px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 7;
+
+    @include phones{
+        width: 90%;
+        padding: 1rem;
+    }
+}
+
+.iconCloseAlert{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.containerAlert__containerIcon{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0;
+}
+
+.containerAlert__containerContent{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.containerAlert__containerContent--title{
+    text-align: center
+}
+
+.containerAlert__containerContent--text{
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.btnConfirmCloseAccoutn{
+    @include phones{
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+

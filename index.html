@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://kit.fontawesome.com/1da5bcf132.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>    
+
+    <title>Peliculas</title>
+</head>
+<body>
+
+    <!--NAVEGACION PHONES-->
+    <div class="containerInfoPhones">
+        <nav class="containerInfoPhones__nav">
+            <a class="containerInfoPhones__nav--link link" href="#">Tendencias</a>
+            <a class="containerInfoPhones__nav--link link" href="#">Proximos estrenos</a>               
+        </nav>
+    </div>
+
+    <!--Header-->
+    <header class="header">
+
+    <div class="containerInfo">
+        <nav class="containerInfo__nav">
+            <a class="containerInfo__nav--link link"  href="index.html">Inicio</a>
+            <a class="containerInfo__nav--link link" href="#">Tendencias</a>
+            <a class="containerInfo__nav--link link noShowTablets" href="favorites.html">Favoritos</a>
+            <a class="containerInfo__nav--link link" href="#">Próximos estrenos</a>
+        </nav>
+    </div>
+
+    <div class="containerLogo">
+        <img class="logo" src="img/imagenlogo-removebg-preview.png" alt="">
+    </div>
+
+    <div class="userPanel">
+
+        <div class="userPanelRewards">
+            <a href="">
+                <button class="userPanelRewards__btn btn-general noShowPhones">
+                    <span class="front">Recompensas</span>
+                    <span class="back"><i class="fa-solid fa-gift"></i></span>
+                </button>
+            </a>
+        </div>
+
+        <div class="containerUser">
+
+            <div class="containerUser__link link btnUserPanel" href="login.html">
+                <div class="containerUser__icon">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+            </div>
+
+            <a class="containerUser__link link" href="favorites.html">
+                <i class="fa-regular fa-heart"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!--Aside User-->
+<aside class="asideUser">
+    <article class="asideUser__containerOptions">
+        
+        <div class="asideUser__containerClose">
+            <i class="fa-solid fa-xmark link asideUser__containerClose"></i>
+        </div>
+
+        <a class="asideUser__containerOptions--option link accountBtn" href="">Cuenta</a>
+        <a class="asideUser__containerOptions--option link" href="favorites.html">Favoritos</a>
+        <a class="asideUser__containerOptions--option link" href="#">Recompensas</a>
+    </article>
+</aside>
+    
+    <!--Main-->
+    <main class="main">
+
+        <!--Banner-->
+        <section class="banner">
+            <article class="banner__gifs">
+                <img src="img/gifs/avatar.gif" alt="" class="avatar gif">
+                <img src="img/gifs/interstellar.gif" alt="" class="it gif">
+                <img src="img/gifs/it.gif" alt="" class="interstellar gif">
+                <img src="img/gifs/madmax.gif" alt="" class="lopper gif">
+                <img src="img/gifs/pacific rim.gif" alt="" class="madmax gif">
+                <img src="img/gifs/interstellar.gif" alt="" class="pacificRim gif">
+                <img src="img/gifs/tremors.gif" alt="" class="void gif">
+                <img src="img/gifs/void.gif" alt="" class="tremors gif ">
+                <img src="img/gifs/skyfall.gif" alt="" class="avatar gif ">
+                <img src="img/gifs/capitan-america-gif.gif" alt="" class="it gif">
+                <img src="img/gifs/et.gif" alt="" class="interstellar gif">
+                <img src="img/gifs/it.gif" alt="" class="lopper gif">
+            </article>
+            <article class="bannerArticle">
+                <h2 class="bannerArticle__title">Explora los mejores títulos de todos los géneros</h2>
+                <p class="bannerArticle__text">Encuentra programas de acción, drama, ciencia ficción, terror y mucho más.</p>
+            </article>
+        </section>
+
+        <!--Busqueda-->
+        <div class="containerSearch">
+            <button id="btn-search" class="containerSearch__btn btn-general">
+                <span class="front">Buscando algo en específico</span>
+                <span class="back"><i class="fa-solid fa-question"></i></span>
+            </button>
+            <div class="containerSearch__container">
+
+                <input id="inputSearch" class="input-text containerSearch__container--input" type="text" placeholder="Ingrese el ID, nombre o genero de algun show...">
+                <button id="btnSearch" class="containerSearch__container--btn btn-general">
+                    <span class="front">Buscar</span>
+                    <span class="back"><i class="fa-solid fa-magnifying-glass"></i></span>
+                </button> 
+            </div>
+        </div>
+
+        <!--Shows grid-->
+        <section class="gridShows">
+
+            <h2 id="notables" class="gridShows__title generalTitle">Destacados</h2>
+
+            <h2 id="accion" class="gridShows__title generalTitle">Accion</h2>
+
+            <h2 id="comedy" class="gridShows__title generalTitle">Comedia</h2>
+
+            <h2 id="cienciaFiccion" class="gridShows__title generalTitle">Ciencia ficción</h2>
+
+            <h2 id="drama" class="gridShows__title generalTitle">Drama</h2>
+
+            <h2 id="thrillers" class="gridShows__title generalTitle">Thrillers</h2>
+
+        </section>
+    </main>
+
+    <!--footer-->
+    <footer class="footer">
+
+        <div class="footerContainer__newsLetter">
+            <h2 class="footerContainer__newsLetter--title notableTitle"><i class="fa-regular fa-envelope"></i>NewsLetter</h2>
+            <p class="footerContainer__newsLetter--text generalText">Suscríbete a nuestro Newsletter y sé el primero en conocer estrenos, reseñas de peliculas y peliculas que tienes que ver</p>
+            <input class="footerContainer__newsLetter--input input-text" type="text" placeholder="Ingresa tu correo electronico">
+            <button class="footerContainer__newsLetter--btn btn-general">
+                <span class="front">Suscribirse</span>
+                <span class="back"><i class="fa-regular fa-bell"></i></span>
+            </button>
+        </div>
+
+        <div class="footerContainerAboutUs">
+            <h2 class="footerContainerAboutUs__title notableTitle"><i class="fa-regular fa-circle-question"></i>Informacion</h2>
+            <nav class="footerContainerAboutUs__nav">
+                <a class="footerContainerAboutUs__nav--link link" href="">Nosotros</a>
+                <a class="footerContainerAboutUs__nav--link link" ref="">Blog</a>
+                <a class="footerContainerAboutUs__nav--link link" href="">Contacto</a>
+            </nav>
+        </div>
+
+        <div class="footerSocialContainer">
+            <h2 class="footerSocialContainer__title notableTitle"><i class="fa-regular fa-address-book"></i>Contacto</h2>
+            <nav class="footerSocialContainer__nav">
+                <a class="footerSocialContainer__nav--link link" href=""><i class="fa-brands fa-facebook"></i>Facebook</a>
+                <a class="footerSocialContainer__nav--link link" href=""><i class="fa-brands fa-instagram"></i>Instagram</a>
+                <a class="footerSocialContainer__nav--link link" href=""><i class="fa-brands fa-x-twitter"></i>X</a>
+                <a class="footerSocialContainer__nav--link link" href="tel:+521234567890"><i class="fa-brands fa-whatsapp">+52 123 456 7890</i></a>
+            </nav>
+        </div>
+
+        <div class="footerCommentsContainer">
+            <h2 class="footerCommentsContainer__title notableTitle"><i class="fa-regular fa-comment"></i>Dejanos un comentario</h2>
+            <div class="footerCommentsContainer__container">
+                <textarea class="footerCommentsContainer__container--textTarea" placeholder="Escribe tu comnetario..." name="" id=""></textarea>
+                <button class="footerCommentsContainer__container--btn btn-general">
+                    <span class="front">Enviar</span>
+                    <span class="back"><i class="fa-regular fa-paper-plane"></i></span>
+                </button>
+            </div>
+        </div>   
+    </footer>
+    
+    <!--Derechos reservados-->
+    <div class="footerContainerSmall">
+        <small class="footerContainerSmall__small notableTitle">&copy; 2025 Todos los derechos reservados.</small>
+    </div>
+
+    <script src="js/sricpt.js"></script>
+
+</body>
+</html>

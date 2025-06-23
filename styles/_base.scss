@@ -1,0 +1,219 @@
+//Generales
+$titulosGeneral: "Raleway", sans-serif; //Titulos de msj, titulos de genero, nombre del show del modal
+$textoGeneral: "Poppins", sans-serif; //Parrafos de msj, btns, descripcion del show del modal, generos del show, informacion del show
+
+//Destacables
+$titulosDestacables: "Oswald", sans-serif; //Titulos principales, encabezados
+$textoDestacables: "Lato", sans-serif; //Links, elementos del footer o header
+
+//Mixin con media queries DISEÑO RESPONSIVO
+
+@mixin phones { 
+  @media screen and (max-width: 44rem) { 
+      @content; 
+  } 
+}
+
+@mixin tablets { 
+  @media screen and (min-width: 44rem) and (max-width: 64rem) { 
+      @content; 
+  } 
+}
+
+@mixin no-hover {
+  @media (hover: none) and (pointer: coarse) {
+      @content;
+  }
+}
+
+//Mixin de estilos
+@mixin general-style-title($font-family, $font-size: 1rem){
+  font-family: $font-family;
+  color: #ffffff;
+  font-size: $font-size;
+}
+
+
+//Clases PLACEHOLDER
+
+%styles-links{
+    width: fit-content;
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+    @include general-style-title($textoDestacables, 1.1rem);
+    transition: transform 0.3s ease-in-out; 
+
+    &:hover{
+        color: #e05a35;
+        transform: scale(1.03);
+    }
+
+    @include no-hover{
+      &:hover{
+        color: #ffffff;
+        transition: none;
+        transform: scale(1);
+      }
+    }
+}
+
+%btn-styles{
+  all: unset;
+  cursor: pointer;
+  position: relative;
+  height: 38px;
+  display: inline-block;
+  perspective: 1000px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  overflow: hidden;
+  width: 95%;
+  margin: 0 auto;
+  @include general-style-title($textoGeneral, 1.2rem);
+
+  @include phones{
+    width: 90% !important;
+    max-width: 380px !important;
+    padding: 5px;
+    font-size: 0.9rem;
+  }
+
+  @include tablets{
+    width: 90%;
+    max-width: 450px;
+    font-size: 1rem;
+  }
+
+  .front,
+  .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    backface-visibility: hidden;
+    pointer-events: none;
+  }
+
+  .front {
+    background: #353849;
+    color: #ffffff;
+    transform: rotateX(0);
+    z-index: 2;
+
+    @include no-hover {
+      transform: none;
+    }
+  }
+
+  .back {
+    background: #e05a35;
+    color: #1f1f24;
+    transform: rotateX(90deg);
+    z-index: 1;
+    opacity: 0;
+
+    @include no-hover {
+      display: none;
+    }
+  }
+
+  &:hover {
+    .front {
+      transform: rotateX(90deg);
+      opacity: 0;
+
+      @include no-hover {
+        transform: none;
+        opacity: 1;
+        transition: none;
+      }
+    }
+
+    .back {
+      transform: rotateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+%styles-text-inputs{
+    background-color: #353849; 
+    color: white;
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 9px 15px;
+    @include general-style-title($textoGeneral, 0.8rem);
+    width: 100%;
+
+    @include phones{
+      max-width: 500px;
+    }
+
+    @include tablets{
+      max-width: 520px;
+    }
+  
+  &::placeholder {
+    color: #aaaaaa;
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: #ff7043; 
+    background-color: #1f1f24;
+  }
+}
+
+%animationCards {
+    border-radius: 18px;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover{
+        transform: scale(1.05);
+    }
+}
+
+%center-containerForm{
+   width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+%styles-forms{
+    width: 50%;
+    padding: 30px 20px;
+    background-color: #2a2930;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    color: #ffffff; 
+    border: 1px solid #3a3a3a;
+
+    @include phones{
+        width: 90%;
+        max-width: 520px;
+        padding: 30px 10px ;
+    }
+
+    @include tablets {
+        width: 80%;
+        max-width: 560px;
+    }
+}
+
+
+
