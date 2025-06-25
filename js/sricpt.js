@@ -89,7 +89,6 @@ const createAlert = (parentContainer, iconClassesAlert, textContentTitle, textCo
         }, 200)
     })
 
-
     const containerIcon = document.createElement("div")
     containerIcon.classList.add("containerAlert__containerIcon")
 
@@ -118,8 +117,11 @@ const createAlert = (parentContainer, iconClassesAlert, textContentTitle, textCo
     if(btnActionClose){
         btn.addEventListener("click", () => {
         containerAlert.classList.remove("active")
+        alertBackground.classList.remove("active")
+        
         setTimeout(() => {
             containerAlert.remove()
+            alertBackground.remove()
             body.classList.remove("noScrollActive")
         }, 200)
     })
