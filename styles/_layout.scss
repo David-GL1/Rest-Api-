@@ -159,7 +159,7 @@ body{
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 5;
+    z-index: 100;
     transform: translateX(100%);
 
     &.active{
@@ -228,7 +228,7 @@ body{
     position: absolute;           
     right: 55px;                    
     top: 20%;  
-    z-index: 4;   
+    z-index: 10;   
     
     @include phones{
         width: 90%;
@@ -392,7 +392,7 @@ body{
     position:   absolute;
     top: -43px;
     left: -25px;
-    z-index: 4;
+    z-index: 10;
 }
 
 //Footer
@@ -628,13 +628,13 @@ body{
 }
 
 //Estilos modal
-.overlay{
+.overlayModal{
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 6;
+    z-index: 100;
 }
 
 .modal {
@@ -645,7 +645,7 @@ body{
     left: 50%;
     display: flex;
     gap: 10px;
-    z-index: 7;
+    z-index: 200;
 
     @include phones{
         flex-direction: column;
@@ -800,6 +800,15 @@ body{
 }
 
 //Alert
+.overlayAlert{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 300;
+}
+
 .containerAlert{
     position: fixed;
     top: 50%;
@@ -810,7 +819,7 @@ body{
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    z-index: 7;
+    z-index: 400;
 
     @include phones{
         width: 90%;

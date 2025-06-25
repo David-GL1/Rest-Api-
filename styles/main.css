@@ -352,7 +352,7 @@ body.noScrollActive {
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 5;
+  z-index: 100;
   transform: translateX(100%);
 }
 .asideUser.active {
@@ -422,7 +422,7 @@ body.noScrollActive {
   position: absolute;
   right: 55px;
   top: 20%;
-  z-index: 4;
+  z-index: 10;
 }
 @media screen and (max-width: 44rem) {
   .bannerArticle {
@@ -596,7 +596,7 @@ body.noScrollActive {
   position: absolute;
   top: -43px;
   left: -25px;
-  z-index: 4;
+  z-index: 10;
 }
 
 .footer {
@@ -826,13 +826,13 @@ body.noScrollActive {
   display: none;
 }
 
-.overlay {
+.overlayModal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 6;
+  z-index: 100;
 }
 
 .modal {
@@ -843,7 +843,7 @@ body.noScrollActive {
   left: 50%;
   display: flex;
   gap: 10px;
-  z-index: 7;
+  z-index: 200;
 }
 @media screen and (max-width: 44rem) {
   .modal {
@@ -1004,6 +1004,15 @@ body.noScrollActive {
   }
 }
 
+.overlayAlert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 300;
+}
+
 .containerAlert {
   position: fixed;
   top: 50%;
@@ -1014,7 +1023,7 @@ body.noScrollActive {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  z-index: 7;
+  z-index: 400;
 }
 @media screen and (max-width: 44rem) {
   .containerAlert {
@@ -1289,14 +1298,14 @@ body {
   }
 }
 
-.overlay {
+.overlayModal {
   background-color: rgba(15, 15, 20, 0.6);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
-.overlay.active {
+.overlayModal.active {
   opacity: 1;
 }
 
@@ -1466,6 +1475,17 @@ body {
   .messageContainer__text {
     font-size: 1.6rem;
   }
+}
+
+.overlayAlert {
+  background-color: rgba(15, 15, 20, 0.6);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.overlayAlert.active {
+  opacity: 1;
 }
 
 .containerAlert {

@@ -58,7 +58,7 @@ const createMessage = (mainContainer, classIcon, contentTitle, contentText) => {
 const createAlert = (parentContainer, iconClassesAlert, textContentTitle, textContentContent, classBtn, contentBtn, iconClasessBtn,  btnActionClose = false) => {
 
     const alertBackground = document.createElement("section")
-    alertBackground.classList.add("overlay")
+    alertBackground.classList.add("overlayAlert")
 
     let containerAlert = document.querySelector(".containerAlert")
 
@@ -126,7 +126,7 @@ const createAlert = (parentContainer, iconClassesAlert, textContentTitle, textCo
     }
     
     parentContainer.appendChild(alertBackground)
-    alertBackground.appendChild(containerAlert)
+    parentContainer.appendChild(containerAlert)
     containerAlert.appendChild(iconCloseAlert)
 
     containerAlert.appendChild(containerIcon)
@@ -233,7 +233,7 @@ const createModal = (showInfo) => {
         }, 200);
 
         const modalBackground = document.createElement("section")
-        modalBackground.classList.add("overlay")
+        modalBackground.classList.add("overlayModal")
 
         const modalContainerImg = document.createElement("article");
         modalContainerImg.classList.add("modal__containerImg");
@@ -281,7 +281,7 @@ const createModal = (showInfo) => {
         modalContainerActions.addEventListener("click", (e) => {
             if(e.target.classList.contains("btnCloseModal")){
                 modal.classList.remove("active");
-                modalBackground.classList.remove("overlay")
+                modalBackground.classList.remove("active")
             // Delay para que al momento de cerrarse el modal le de tiempo de ejecutar primero la animacion y despues eliminar del DOM
             setTimeout(() => {
                 modal.remove()
